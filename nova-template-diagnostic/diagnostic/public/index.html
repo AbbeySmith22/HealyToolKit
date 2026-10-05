@@ -3,442 +3,2431 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- CUSTOMIZE: Change this to your tool name -->
-<title>NOVA Diagnostic Template</title>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<title>Healy Potency Checker | High Vibrancy Living</title>
+
+<!-- Elegant editorial serif + clean modern sans -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&display=swap" rel="stylesheet">
+
 <style>
-  /* NOVA BRAND TOKENS — update with your Brand Token Cheatsheet values */
-  :root {
-    --primary:      #1D9E75;
-    --primary-dark: #166d52;
-    --dark:         #0F172A;
-    --light-bg:     #E3F8F9;
-    --mid-bg:       #CCF2F3;
-    --border:       #9FE1CB;
-    --gray-bg:      #F8FAFB;
-    --gray-text:    #6B7280;
-    --grad:         linear-gradient(135deg, #054e6f 0%, #095c6e 50%, #0a696b 100%);
-    --radius:       10px;
-    --heading-font: 'Be Vietnam Pro', sans-serif;
-    --body-font:    'Nunito Sans', sans-serif;
+
+/* =========================================================
+   HIGH VIBRANCY LIVING — BRAND SYSTEM
+========================================================= */
+
+:root {
+
+  --blue: #0870C1;
+  --deep-blue: #2854A5;
+
+  --purple: #7657D8;
+  --violet: #9947E8;
+  --pink: #CF078D;
+
+  --lilac: #9483AB;
+  --soft-lilac: #EEE7F6;
+  --pale-lilac: #F7F2FA;
+
+  --blush: #FAEEF6;
+  --soft-pink: #FFF6FA;
+
+  --ice-blue: #EDF7FD;
+  --soft-blue: #F5FAFE;
+
+  --cream: #FFFDFC;
+  --white: #FFFFFF;
+
+  --green: #314B27;
+
+  --text: #33324A;
+  --muted: #807A91;
+
+  --border: #E1D5ED;
+  --border-blue: #D7E8F5;
+
+  --background:
+    linear-gradient(
+      135deg,
+      #F1F8FD 0%,
+      #FBF1F8 48%,
+      #F2EBFA 100%
+    );
+
+  --button:
+    linear-gradient(
+      90deg,
+      #7843EC 0%,
+      #A936E4 48%,
+      #D00091 100%
+    );
+
+  --serif: 'Italiana', Georgia, serif;
+  --sans: 'DM Sans', Arial, sans-serif;
+
+  --radius: 18px;
+  --small-radius: 11px;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: var(--sans);
+  color: var(--text);
+
+  background:
+    radial-gradient(circle at 10% 10%, rgba(169,205,255,.32), transparent 30%),
+    radial-gradient(circle at 88% 12%, rgba(239,191,235,.34), transparent 32%),
+    radial-gradient(circle at 50% 70%, rgba(211,194,244,.22), transparent 38%),
+    #F9F5FB;
+
+  min-height: 100vh;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  text-align: center;
+
+  padding:
+    62px 24px
+    70px;
+
+  background:
+    radial-gradient(circle at 20% 25%, rgba(182,224,255,.55), transparent 28%),
+    radial-gradient(circle at 80% 20%, rgba(245,199,237,.60), transparent 30%),
+    radial-gradient(circle at 50% 90%, rgba(215,198,245,.50), transparent 35%),
+    linear-gradient(135deg,#F4FAFF,#FFF5FA,#F4EEFB);
+}
+
+
+/* subtle decorative circles */
+
+.hero::before {
+  content: "";
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  border: 1px solid rgba(125,88,213,.14);
+  border-radius: 50%;
+
+  right: -170px;
+  top: -160px;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  border: 1px solid rgba(0,112,193,.10);
+  border-radius: 50%;
+
+  left: -100px;
+  bottom: -130px;
+}
+
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+/* mini brand mark */
+
+.brand-mark {
+  width: 66px;
+  height: 66px;
+
+  margin:
+    0 auto
+    15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--serif);
+  font-size: 36px;
+
+  color: var(--purple);
+
+  border: 1px solid rgba(118,87,216,.20);
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.48);
+
+  backdrop-filter: blur(8px);
+}
+
+
+.brand-name {
+  font-family: var(--serif);
+
+  color: #5941A4;
+
+  font-size: clamp(34px,5vw,57px);
+
+  line-height: 1.05;
+
+  margin-bottom: 8px;
+}
+
+
+.brand-line {
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 6px;
+
+  color: var(--purple);
+
+  margin-bottom: 35px;
+}
+
+
+.tool-eyebrow {
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 3px;
+
+  color: var(--blue);
+
+  font-weight: 700;
+
+  margin-bottom: 10px;
+}
+
+
+.hero h1 {
+  font-family: var(--serif);
+
+  font-weight: 400;
+
+  font-size: clamp(40px,6vw,68px);
+
+  line-height: 1.05;
+
+  color: var(--deep-blue);
+
+  margin:
+    0 0
+    18px;
+}
+
+
+.hero-sub {
+  max-width: 650px;
+
+  margin:
+    0 auto
+    20px;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: #69627B;
+}
+
+
+.credibility {
+  display: inline-block;
+
+  margin-top: 7px;
+
+  padding:
+    8px 16px;
+
+  font-size: 11px;
+
+  color: #715EB3;
+
+  border: 1px solid rgba(118,87,216,.18);
+
+  border-radius: 50px;
+
+  background: rgba(255,255,255,.55);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main {
+  width: min(920px, calc(100% - 32px));
+
+  margin:
+    -34px auto
+    70px;
+
+  position: relative;
+
+  z-index: 10;
+}
+
+
+/* =========================================================
+   TOOL CARD
+========================================================= */
+
+.tool-card {
+  background: rgba(255,255,255,.93);
+
+  border: 1px solid rgba(222,207,237,.95);
+
+  border-radius: 24px;
+
+  padding:
+    42px 48px;
+
+  box-shadow:
+    0 18px 60px rgba(81,56,116,.10);
+
+  backdrop-filter: blur(14px);
+}
+
+
+.section-eyebrow {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2.5px;
+
+  font-weight: 700;
+
+  color: var(--purple);
+
+  margin-bottom: 8px;
+}
+
+
+.section-eyebrow::before {
+  content: "✦";
+
+  color: var(--pink);
+
+  font-size: 14px;
+}
+
+
+.section-heading {
+  font-family: var(--serif);
+
+  font-size: 36px;
+
+  font-weight: 400;
+
+  color: var(--deep-blue);
+
+  margin:
+    0 0
+    12px;
+}
+
+
+.section-intro {
+  color: var(--muted);
+
+  line-height: 1.7;
+
+  font-size: 14px;
+
+  margin-bottom: 34px;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.field-group {
+  margin-bottom: 24px;
+}
+
+
+.field-label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.5px;
+
+  color: var(--deep-blue);
+
+  font-weight: 700;
+}
+
+
+.field-hint {
+  margin-bottom: 9px;
+
+  color: var(--muted);
+
+  font-size: 12.5px;
+
+  line-height: 1.5;
+}
+
+
+.fi {
+  width: 100%;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: var(--small-radius);
+
+  background:
+    linear-gradient(
+      135deg,
+      #FFFFFF,
+      #FCF9FE
+    );
+
+  padding:
+    14px 16px;
+
+  font-family: var(--sans);
+
+  font-size: 15px;
+
+  color: var(--text);
+
+  outline: none;
+
+  transition:
+    border .2s,
+    box-shadow .2s,
+    background .2s;
+}
+
+
+textarea.fi {
+  height: 115px;
+
+  resize: none;
+
+  line-height: 1.6;
+}
+
+
+.fi::placeholder {
+  color: #B7ACC5;
+
+  font-style: italic;
+}
+
+
+.fi:focus {
+  border-color: #A788E7;
+
+  background: #fff;
+
+  box-shadow:
+    0 0 0 4px
+    rgba(153,71,232,.08);
+}
+
+
+.two-col {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.submit-wrap {
+  margin-top: 30px;
+
+  text-align: center;
+}
+
+
+.btn-primary {
+  border: 0;
+
+  color: white;
+
+  background: var(--button);
+
+  border-radius:
+    8px 8px 20px 8px;
+
+  padding:
+    16px 34px;
+
+  min-width: 270px;
+
+  font-family: var(--sans);
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 9px 24px
+    rgba(170,39,190,.20);
+
+  transition:
+    transform .2s,
+    box-shadow .2s;
+}
+
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 13px 30px
+    rgba(170,39,190,.28);
+}
+
+
+.btn-primary:disabled {
+  opacity: .55;
+
+  cursor: default;
+
+  transform: none;
+}
+
+
+.under-button {
+  text-align: center;
+
+  margin-top: 14px;
+
+  font-size: 11px;
+
+  color: #9990A8;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.error-box {
+  display: none;
+
+  margin-top: 16px;
+
+  padding: 12px 15px;
+
+  border-radius: 10px;
+
+  background: #FFF2F5;
+
+  border: 1px solid #F3C8D6;
+
+  color: #9E4562;
+
+  font-size: 13px;
+}
+
+
+.error-box.show {
+  display: block;
+}
+
+
+/* =========================================================
+   EMAIL GATE
+========================================================= */
+
+.email-gate {
+  display: none;
+
+  text-align: center;
+
+  padding:
+    30px 10px 10px;
+}
+
+
+.email-gate.show {
+  display: block;
+}
+
+
+.gate-icon {
+  width: 64px;
+  height: 64px;
+
+  margin:
+    0 auto
+    16px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 25px;
+
+  color: var(--purple);
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--ice-blue),
+      var(--blush)
+    );
+
+  border:
+    1px solid
+    var(--border);
+}
+
+
+.gate-title {
+  font-family: var(--serif);
+
+  color: var(--deep-blue);
+
+  font-size: 34px;
+
+  margin-bottom: 9px;
+}
+
+
+.gate-sub {
+  color: var(--muted);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  max-width: 570px;
+
+  margin:
+    0 auto
+    22px;
+}
+
+
+.gate-row {
+  display: flex;
+
+  max-width: 600px;
+
+  margin: auto;
+
+  gap: 10px;
+}
+
+
+.gate-input {
+  flex: 1;
+
+  padding:
+    14px 17px;
+
+  border-radius: 50px;
+
+  border:
+    1px solid
+    var(--border);
+
+  outline: none;
+
+  font-family: var(--sans);
+
+  font-size: 14px;
+}
+
+
+.gate-input:focus {
+  border-color: var(--purple);
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading {
+  display: none;
+
+  text-align: center;
+
+  padding: 65px 20px;
+}
+
+
+.loading.show {
+  display: block;
+}
+
+
+.spinner {
+  width: 52px;
+  height: 52px;
+
+  margin:
+    0 auto
+    18px;
+
+  border:
+    3px solid
+    #EAE1F3;
+
+  border-top-color:
+    var(--violet);
+
+  border-radius: 50%;
+
+  animation:
+    spin .8s linear infinite;
+}
+
+
+@keyframes spin {
+
+  to {
+    transform: rotate(360deg);
   }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: var(--body-font); font-size: 16px;
-    background: #f0f4f8; color: var(--dark);
-    margin: 0; padding: 24px 16px 48px;
-    -webkit-font-smoothing: antialiased;
-  }
-  .page {
-    max-width: 780px; margin: 0 auto; background: #fff;
-    border-radius: 16px; overflow: hidden;
-    box-shadow: 0 4px 32px rgba(0,0,0,0.10);
-  }
-  .header {
-    background: var(--grad);
-    padding: 40px 44px 32px; position: relative; overflow: hidden;
-  }
-  .header::after {
-    content: ''; position: absolute;
-    bottom: -30px; right: -30px; width: 160px; height: 160px;
-    border-radius: 50%; background: rgba(255,255,255,0.05);
-  }
-  .tool-tag {
-    font-family: var(--heading-font); font-size: 11px; font-weight: 700;
-    letter-spacing: 2px; text-transform: uppercase;
-    color: var(--border); margin-bottom: 8px;
-  }
-  .header h1 {
-    font-family: var(--heading-font); font-weight: 900; font-size: 30px;
-    color: #fff; line-height: 1.15; margin-bottom: 8px;
-  }
-  .header-sub { font-size: 15px; color: var(--mid-bg); line-height: 1.6; max-width: 480px; }
-  .credibility { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 14px; font-style: italic; }
+}
 
-  .body { padding: 36px 44px 44px; }
 
-  .section-title {
-    font-family: var(--heading-font); font-weight: 800; font-size: 11px;
-    letter-spacing: 2px; text-transform: uppercase;
-    color: #fff; background: var(--dark);
-    padding: 8px 16px; border-radius: 6px;
-    margin-bottom: 16px; margin-top: 28px; display: block;
+.loading-text {
+  font-family: var(--serif);
+
+  font-size: 24px;
+
+  color: var(--purple);
+}
+
+
+/* =========================================================
+   RESULTS
+========================================================= */
+
+.results {
+  display: none;
+}
+
+
+.results.show {
+  display: block;
+}
+
+
+.results-header {
+  text-align: center;
+
+  margin-bottom: 28px;
+}
+
+
+.results-header h2 {
+  font-family: var(--serif);
+
+  font-size: 42px;
+
+  font-weight: 400;
+
+  color: var(--deep-blue);
+
+  margin:
+    5px 0
+    6px;
+}
+
+
+.results-header p {
+  color: var(--muted);
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   SCAN SUMMARY
+========================================================= */
+
+.result-summary {
+  padding: 28px;
+
+  border-radius: var(--radius);
+
+  background:
+    linear-gradient(
+      135deg,
+      #F9F5FD,
+      #F2F8FD
+    );
+
+  border:
+    1px solid
+    var(--border);
+
+  margin-bottom: 18px;
+}
+
+
+.result-topic {
+  font-family: var(--serif);
+
+  color: #493795;
+
+  font-size: clamp(27px,4vw,38px);
+
+  line-height: 1.3;
+
+  margin-bottom: 24px;
+}
+
+
+.result-stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap: 12px;
+}
+
+
+.stat {
+  background:
+    rgba(255,255,255,.85);
+
+  border:
+    1px solid
+    rgba(220,207,235,.8);
+
+  border-radius: 12px;
+
+  padding: 14px;
+
+  text-align: center;
+}
+
+
+.stat-label {
+  font-size: 9px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.3px;
+
+  font-weight: 700;
+
+  color: var(--purple);
+
+  margin-bottom: 5px;
+}
+
+
+.stat-value {
+  font-family: var(--serif);
+
+  font-size: 23px;
+
+  color: var(--deep-blue);
+}
+
+
+/* =========================================================
+   POTENCY
+========================================================= */
+
+.potency-card {
+  padding: 28px;
+
+  border-radius: var(--radius);
+
+  background:
+    linear-gradient(
+      135deg,
+      #EDF7FD,
+      #F4EEFB
+    );
+
+  border:
+    1px solid
+    #D8E4F2;
+
+  margin-bottom: 18px;
+}
+
+
+.plane-badge {
+  display: inline-block;
+
+  padding:
+    7px 13px;
+
+  border-radius: 50px;
+
+  margin-bottom: 13px;
+
+  background:
+    rgba(255,255,255,.70);
+
+  color: var(--blue);
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.4px;
+
+  font-weight: 700;
+}
+
+
+.stage-title {
+  font-family: var(--serif);
+
+  color: #6640B7;
+
+  font-size: 31px;
+
+  line-height: 1.25;
+
+  margin-bottom: 8px;
+}
+
+
+.depth {
+  color: var(--deep-blue);
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   RESULT CARDS
+========================================================= */
+
+.results-grid {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 16px;
+}
+
+
+.content-card {
+  padding: 24px;
+
+  border-radius: var(--radius);
+
+  border:
+    1px solid
+    var(--border);
+
+  background:
+    rgba(255,255,255,.82);
+}
+
+
+.highlight-card {
+  background:
+    linear-gradient(
+      135deg,
+      #FBF7FE,
+      #F6FAFE
+    );
+}
+
+
+.reflection-card {
+  background:
+    linear-gradient(
+      135deg,
+      #FFF8FC,
+      #FAF2FA
+    );
+}
+
+
+.card-label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 11px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.4px;
+
+  text-transform: uppercase;
+
+  color: var(--pink);
+}
+
+
+.card-text {
+  color: #56516A;
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+
+.reflection-card .card-text {
+  font-family: Georgia, serif;
+
+  font-style: italic;
+
+  font-size: 16px;
+
+  color: #5E5573;
+}
+
+
+/* =========================================================
+   PRACTICE
+========================================================= */
+
+.practice-card {
+  margin-top: 16px;
+
+  padding: 28px;
+
+  border-radius: var(--radius);
+
+  border:
+    1px solid
+    #E6CFE8;
+
+  background:
+    linear-gradient(
+      135deg,
+      #FFF5FA,
+      #F5EFFB
+    );
+}
+
+
+.practice-title {
+  font-family: var(--serif);
+
+  font-size: 28px;
+
+  color: #A031B7;
+
+  margin-bottom: 20px;
+}
+
+
+.practice-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap: 10px;
+}
+
+
+.practice-item {
+  padding:
+    16px 10px;
+
+  background:
+    rgba(255,255,255,.82);
+
+  border-radius: 12px;
+
+  text-align: center;
+
+  border:
+    1px solid
+    rgba(225,210,237,.8);
+}
+
+
+.practice-label {
+  color: #A04FC0;
+
+  text-transform: uppercase;
+
+  font-size: 8px;
+
+  letter-spacing: 1px;
+
+  font-weight: 700;
+
+  margin-bottom: 7px;
+}
+
+
+.practice-value {
+  color: var(--deep-blue);
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  line-height: 1.4;
+}
+
+
+.practice-note {
+  margin-top: 16px;
+
+  color: #938A9E;
+
+  font-size: 10.5px;
+
+  line-height: 1.6;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.focus-card {
+  margin-top: 16px;
+
+  padding: 27px;
+
+  border-radius: var(--radius);
+
+  background:
+    linear-gradient(
+      135deg,
+      #EFF8FD,
+      #F9F2FA
+    );
+
+  border:
+    1px solid
+    #D9E5F1;
+}
+
+
+.focus-label {
+  color: var(--blue);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.4px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 10px;
+}
+
+
+.focus-text {
+  font-family: Georgia, serif;
+
+  font-style: italic;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  color: #55516B;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+.reset-wrap {
+  text-align: center;
+
+  margin-top: 30px;
+}
+
+
+.reset-btn {
+  background: transparent;
+
+  border:
+    1px solid
+    #9C78DF;
+
+  color: var(--purple);
+
+  border-radius:
+    8px 8px 18px 8px;
+
+  padding:
+    13px 27px;
+
+  font-family: var(--sans);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.4px;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+
+.reset-btn:hover {
+  background: var(--pale-lilac);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+  text-align: center;
+
+  padding:
+    35px 20px
+    45px;
+
+  color: #948AA3;
+
+  font-size: 11px;
+}
+
+
+.footer-brand {
+  font-family: var(--serif);
+
+  font-size: 25px;
+
+  color: #6954B0;
+
+  margin-bottom: 6px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px) {
+
+  .hero {
+    padding:
+      45px 20px
+      60px;
   }
 
-  .intro-box {
-    background: var(--light-bg);
-    border-left: 4px solid var(--primary);
-    border-radius: 0 8px 8px 0;
-    padding: 16px 20px; margin-bottom: 28px;
-    font-size: 14.5px; color: var(--dark); line-height: 1.75;
+  .brand-line {
+    letter-spacing: 4px;
   }
-  .intro-box strong { font-weight: 700; color: #054e6f; }
 
-  .field-group { margin-bottom: 18px; }
-  .field-label {
-    font-family: var(--heading-font); font-size: 11px; font-weight: 700;
-    color: #054e6f; text-transform: uppercase;
-    letter-spacing: 1px; margin-bottom: 6px; display: block;
+  .main {
+    width:
+      calc(100% - 20px);
   }
-  .field-hint { font-size: 13px; color: var(--gray-text); font-style: italic; margin-bottom: 8px; line-height: 1.5; }
-  textarea.fi, input.fi {
-    width: 100%; background: var(--gray-bg);
-    border: 1.5px solid var(--mid-bg); border-radius: 8px;
-    font-family: var(--body-font); font-size: 15px; color: var(--dark);
-    padding: 12px 14px; outline: none; resize: none;
-    transition: border-color 0.2s; display: block; -webkit-appearance: none;
-  }
-  textarea.fi { height: 120px; line-height: 1.6; }
-  textarea.fi:focus, input.fi:focus { border-color: var(--primary); background: #f0fdf9; }
-  textarea.fi::placeholder, input.fi::placeholder { color: #B0BEC5; font-style: italic; font-size: 14px; }
 
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .tool-card {
+    padding:
+      30px 20px;
+  }
 
-  .email-gate {
-    display: none; background: var(--light-bg);
-    border: 1.5px solid var(--border); border-radius: var(--radius);
-    padding: 24px; margin-top: 20px; text-align: center;
+  .two-col,
+  .results-grid {
+    grid-template-columns:
+      1fr;
   }
-  .email-gate.show { display: block; }
-  .gate-title { font-family: var(--heading-font); font-size: 18px; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
-  .gate-sub { font-size: 14px; color: var(--gray-text); margin-bottom: 16px; line-height: 1.6; }
-  .gate-row { display: flex; gap: 10px; }
-  .gate-input {
-    flex: 1; background: #fff; border: 1.5px solid var(--mid-bg);
-    border-radius: 8px; font-family: var(--body-font);
-    font-size: 15px; color: var(--dark); padding: 12px 14px;
-    outline: none; transition: border-color 0.2s; -webkit-appearance: none;
+
+  .result-stats {
+    grid-template-columns:
+      1fr;
   }
-  .gate-input:focus { border-color: var(--primary); }
-  .gate-input::placeholder { color: #B0BEC5; font-style: italic; }
+
+  .practice-grid {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .gate-row {
+    flex-direction: column;
+  }
 
   .btn-primary {
-    background: var(--primary); color: #fff; border: none;
-    border-radius: 8px; font-family: var(--heading-font);
-    font-size: 15px; font-weight: 800; padding: 13px 28px;
-    cursor: pointer; transition: background 0.2s, transform 0.1s; white-space: nowrap;
-  }
-  .btn-primary:hover { background: var(--primary-dark); }
-  .btn-primary:active { transform: scale(0.98); }
-  .btn-primary:disabled { background: var(--border); cursor: not-allowed; }
-  .submit-wrap { margin-top: 24px; }
+    width: 100%;
 
-  .loading { display: none; text-align: center; padding: 40px 0; }
-  .loading.show { display: block; }
-  .spinner {
-    width: 44px; height: 44px; border: 4px solid var(--mid-bg);
-    border-top-color: var(--primary); border-radius: 50%;
-    animation: spin 0.8s linear infinite; margin: 0 auto 16px;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .loading-text { font-family: var(--heading-font); font-size: 15px; font-weight: 700; color: var(--gray-text); }
-
-  .results { display: none; }
-  .results.show { display: block; }
-
-  /* CATEGORY BADGE */
-  .category-badge {
-    display: inline-block;
-    background: var(--dark); color: var(--border);
-    font-family: var(--heading-font); font-size: 11px; font-weight: 700;
-    letter-spacing: 2px; text-transform: uppercase;
-    padding: 6px 16px; border-radius: 20px; margin-bottom: 16px;
+    min-width: 0;
   }
 
-  /* ROOT CAUSE */
-  .root-cause-box {
-    background: #FEE2E2; border: 2px solid #EF4444;
-    border-radius: 12px; padding: 20px 24px; margin-bottom: 20px;
-  }
-  .root-cause-label {
-    font-family: var(--heading-font); font-size: 10px; font-weight: 700;
-    color: #991B1B; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px;
-  }
-  .root-cause-text { font-size: 16px; font-weight: 700; color: var(--dark); line-height: 1.5; }
+}
 
-  /* FIXES */
-  .fix-item {
-    background: var(--gray-bg); border: 1.5px solid var(--mid-bg);
-    border-radius: 10px; padding: 16px 20px; margin-bottom: 10px;
-    display: flex; gap: 16px; align-items: flex-start;
-  }
-  .fix-num {
-    font-family: var(--heading-font); font-size: 22px; font-weight: 900;
-    color: var(--mid-bg); line-height: 1; flex-shrink: 0; min-width: 28px;
-  }
-  .fix-content { flex: 1; }
-  .fix-action { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 6px; line-height: 1.4; }
-  .fix-meta { display: flex; gap: 10px; flex-wrap: wrap; }
-  .fix-tag {
-    font-family: var(--heading-font); font-size: 10px; font-weight: 700;
-    padding: 3px 10px; border-radius: 20px;
-    text-transform: uppercase; letter-spacing: 0.5px;
-  }
-  .fix-tag.time { background: var(--light-bg); color: #054e6f; }
-  .fix-tag.impact-high { background: #D1FAE5; color: #065F46; }
-  .fix-tag.impact-med { background: #FEF3C7; color: #92400E; }
 
-  /* STOP BOX */
-  .stop-box {
-    background: var(--light-bg); border: 1.5px solid var(--border);
-    border-radius: 10px; padding: 16px 20px; margin-top: 4px;
-    display: flex; gap: 12px; align-items: flex-start;
-  }
-  .stop-icon { font-size: 20px; flex-shrink: 0; }
-  .stop-content { }
-  .stop-label { font-family: var(--heading-font); font-size: 10px; font-weight: 700; color: #054e6f; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
-  .stop-text { font-size: 14px; color: var(--dark); line-height: 1.6; }
+@media(max-width:420px) {
 
-  .confidence-note { font-size: 12px; color: var(--gray-text); margin-top: 16px; font-style: italic; }
-
-  .reset-btn {
-    background: transparent; color: var(--primary);
-    border: 2px solid var(--primary); border-radius: 8px;
-    font-family: var(--heading-font); font-size: 14px; font-weight: 700;
-    padding: 11px 28px; cursor: pointer; transition: all 0.2s; margin-top: 20px;
+  .practice-grid {
+    grid-template-columns:
+      1fr;
   }
-  .reset-btn:hover { background: var(--light-bg); }
 
-  .error-box {
-    background: #FEE2E2; border: 1.5px solid #FECACA;
-    border-radius: 8px; padding: 14px 18px; font-size: 14px; color: #991B1B;
-    display: none; margin-top: 14px; line-height: 1.6;
-  }
-  .error-box.show { display: block; }
+}
 
-  .footer {
-    background: var(--dark); padding: 14px 44px;
-    display: flex; justify-content: space-between; align-items: center; margin-top: 28px;
-  }
-  .footer-brand { font-family: var(--heading-font); font-weight: 900; font-size: 14px; color: var(--border); letter-spacing: 1px; }
-  .footer-url { font-size: 12px; color: var(--mid-bg); opacity: 0.6; }
-
-  @media (max-width: 600px) {
-    .body { padding: 24px 20px 32px; }
-    .header { padding: 28px 20px 24px; }
-    .footer { padding: 14px 20px; flex-direction: column; gap: 6px; }
-    .two-col { grid-template-columns: 1fr; }
-    .gate-row { flex-direction: column; }
-  }
 </style>
 </head>
+
+
 <body>
+
 <div class="page">
 
-  <div class="header">
-    <!-- CUSTOMIZE: Update tag, title, subtitle, credibility -->
-    <div class="tool-tag">Your Brand Name</div>
-    <h1>Your Diagnostic Tool Name</h1>
-    <div class="header-sub">One sentence describing what situation the user describes and what diagnosis they get back.</div>
-    <div class="credibility">Built by [Your Name] — [Your credibility signal]</div>
-  </div>
 
-  <div class="body">
+<!-- ======================================================
+     HERO
+====================================================== -->
 
-    <div id="form-section">
-      <div class="section-title">Describe Your Situation</div>
+<section class="hero">
 
-      <!-- CUSTOMIZE: Update intro box copy for your tool -->
-      <div class="intro-box">
-        <strong>Be specific.</strong> The more detail you give, the more accurate the diagnosis. Describe [what you want users to tell you] — include [specific details that help the diagnosis]. The tool reads what you write and diagnoses the most likely root cause.
-      </div>
+  <div class="hero-inner">
 
-      <!-- CUSTOMIZE: Update labels, hints, placeholders -->
-      <div class="field-group">
-        <span class="field-label">Describe your situation</span>
-        <div class="field-hint">The more specific you are, the more accurate the diagnosis. Include symptoms, what you have already tried, and how long this has been a problem.</div>
-        <textarea class="fi" id="situation-input"
-          placeholder="Describe your situation in as much detail as you can. What is happening? What have you tried? What does success look like?"></textarea>
-      </div>
-
-      <!-- CUSTOMIZE: Add optional additional fields if needed -->
-      <div class="two-col">
-        <div class="field-group">
-          <span class="field-label">Optional context field</span>
-          <div class="field-hint">Any additional context that helps the diagnosis.</div>
-          <input type="text" class="fi" id="context-input" placeholder="e.g. industry, team size, how long...">
-        </div>
-        <div class="field-group">
-          <span class="field-label">Optional second context field</span>
-          <div class="field-hint">Any other relevant detail.</div>
-          <input type="text" class="fi" id="context2-input" placeholder="e.g. what you have already tried...">
-        </div>
-      </div>
-
-      <div class="submit-wrap">
-        <button class="btn-primary" id="submit-btn" onclick="handleSubmit()">
-          Diagnose My Situation →
-        </button>
-      </div>
-      <div class="error-box" id="error-box">Please describe your situation before running the diagnostic.</div>
+    <div class="brand-mark">
+      V
     </div>
 
-    <!-- EMAIL GATE -->
-    <div class="email-gate" id="email-gate">
-      <div class="gate-title">Your diagnosis is ready.</div>
-      <div class="gate-sub">Enter your email to receive your full diagnosis and action plan.</div>
-      <div class="gate-row">
-        <input type="email" class="gate-input" id="gate-email" placeholder="your@email.com">
-        <button class="btn-primary" id="gate-btn" onclick="handleGate()">Send My Diagnosis</button>
-      </div>
-      <div class="error-box" id="gate-error">Please enter a valid email address.</div>
+    <div class="brand-name">
+      High Vibrancy Living
     </div>
 
-    <!-- LOADING -->
-    <div class="loading" id="loading">
-      <div class="spinner"></div>
-      <div class="loading-text">Analyzing your situation... about 10 seconds.</div>
+    <div class="brand-line">
+      Heal · Align · Expand
     </div>
 
-    <!-- RESULTS -->
-    <div class="results" id="results">
-      <div class="section-title">Your Diagnosis</div>
+    <div class="tool-eyebrow">
+      Frequency Tool
+    </div>
 
-      <div class="category-badge" id="category-badge"></div>
+    <h1>
+      Healy Potency Checker
+    </h1>
 
-      <div class="root-cause-box">
-        <div class="root-cause-label">Root Cause</div>
-        <div class="root-cause-text" id="root-cause"></div>
-      </div>
+    <div class="hero-sub">
 
-      <div class="section-title" style="margin-top:0;">Your Action Plan</div>
-      <div id="fixes-list"></div>
+      Understand the energetic depth behind your Healy scan.
 
-      <div class="stop-box" id="stop-box" style="display:none;">
-        <div class="stop-icon">🛑</div>
-        <div class="stop-content">
-          <div class="stop-label">Stop Doing This</div>
-          <div class="stop-text" id="stop-text"></div>
-        </div>
-      </div>
+      Enter your result to explore its
+      <strong>plane, potency depth and strongest energetic theme</strong>
+      — then receive your High Vibrancy practice and next focus.
 
-      <div class="confidence-note" id="confidence-note"></div>
+    </div>
 
-      <button class="reset-btn" onclick="resetTool()">Diagnose a Different Situation</button>
+    <div class="credibility">
+      Frequency Practitioner & Healy Trainer since 2019
     </div>
 
   </div>
 
-  <div class="footer">
-    <!-- CUSTOMIZE: Update brand name and URL -->
-    <div class="footer-brand">YOUR BRAND</div>
-    <div class="footer-url">yourwebsite.com</div>
+</section>
+
+
+
+<!-- ======================================================
+     MAIN TOOL
+====================================================== -->
+
+<main class="main">
+
+<div class="tool-card">
+
+
+<!-- ======================================================
+     FORM
+====================================================== -->
+
+<div id="form-section">
+
+  <div class="section-eyebrow">
+    Healy Scan Interpretation
+  </div>
+
+  <h2 class="section-heading">
+    Enter Your Scan Result
+  </h2>
+
+  <div class="section-intro">
+
+    Enter the four pieces of information exactly as they
+    appear in your Healy scan.
+
+    Your checker will bring them together to help you
+    understand what your result may be highlighting and
+    how to work with it.
+
+  </div>
+
+
+
+  <!-- TOPIC -->
+
+  <div class="field-group">
+
+    <label class="field-label">
+      1. Scan Topic / Result
+    </label>
+
+    <div class="field-hint">
+      Enter the exact present state or statement shown in your scan.
+    </div>
+
+    <textarea
+      class="fi"
+      id="topic-input"
+      placeholder='e.g. "I immediately reject compliments."'
+    ></textarea>
+
+  </div>
+
+
+
+  <!-- RELEVANCE + INTENSITY -->
+
+  <div class="two-col">
+
+
+    <div class="field-group">
+
+      <label class="field-label">
+        2. Relevance %
+      </label>
+
+      <div class="field-hint">
+        Enter the relevance percentage shown in your scan.
+      </div>
+
+      <input
+        class="fi"
+        type="text"
+        id="relevance-input"
+        placeholder="e.g. 83%"
+      >
+
+    </div>
+
+
+
+    <div class="field-group">
+
+      <label class="field-label">
+        3. Intensity
+      </label>
+
+      <div class="field-hint">
+        Enter the intensity number shown in your scan.
+      </div>
+
+      <input
+        class="fi"
+        type="text"
+        id="intensity-input"
+        placeholder="e.g. 7"
+      >
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- POTENCY -->
+
+  <div class="field-group">
+
+    <label class="field-label">
+      4. Potency
+    </label>
+
+    <div class="field-hint">
+      Enter the potency exactly as shown, including D, C or LM.
+    </div>
+
+    <input
+      class="fi"
+      type="text"
+      id="potency-input"
+      placeholder="e.g. D 1E24"
+    >
+
+  </div>
+
+
+
+  <div class="submit-wrap">
+
+    <button
+      class="btn-primary"
+      onclick="handleSubmit()"
+    >
+      ✦ Interpret My Result
+    </button>
+
+  </div>
+
+  <div class="under-button">
+    Your result will help you explore the plane, depth and practice associated with your scan.
+  </div>
+
+
+  <div
+    class="error-box"
+    id="error-box"
+  >
+    Please complete all four scan fields before checking your result.
   </div>
 
 </div>
 
+
+
+<!-- ======================================================
+     EMAIL GATE
+====================================================== -->
+
+<div
+  class="email-gate"
+  id="email-gate"
+>
+
+  <div class="gate-icon">
+    ✉
+  </div>
+
+  <div class="gate-title">
+    Your scan interpretation is ready.
+  </div>
+
+  <div class="gate-sub">
+
+    Enter your email to reveal your full potency interpretation,
+    energetic depth and High Vibrancy practice.
+
+  </div>
+
+
+  <div class="gate-row">
+
+    <input
+      type="email"
+      class="gate-input"
+      id="gate-email"
+      placeholder="your@email.com"
+    >
+
+    <button
+      class="btn-primary"
+      id="gate-btn"
+      onclick="handleGate()"
+    >
+      Reveal My Result
+    </button>
+
+  </div>
+
+
+  <div
+    class="error-box"
+    id="gate-error"
+  >
+    Please enter a valid email address.
+  </div>
+
+</div>
+
+
+
+<!-- ======================================================
+     LOADING
+====================================================== -->
+
+<div
+  class="loading"
+  id="loading"
+>
+
+  <div class="spinner"></div>
+
+  <div class="loading-text">
+    Interpreting your scan...
+  </div>
+
+</div>
+
+
+
+<!-- ======================================================
+     RESULTS
+====================================================== -->
+
+<div
+  class="results"
+  id="results"
+>
+
+
+  <div class="results-header">
+
+    <div class="section-eyebrow"
+         style="justify-content:center;">
+      Your Interpretation
+    </div>
+
+    <h2>
+      Your Scan Result
+    </h2>
+
+    <p>
+      Explore what your result may be inviting you to notice.
+    </p>
+
+  </div>
+
+
+
+  <!-- SCAN -->
+
+  <div class="result-summary">
+
+    <div
+      class="result-topic"
+      id="result-topic"
+    ></div>
+
+
+    <div class="result-stats">
+
+
+      <div class="stat">
+
+        <div class="stat-label">
+          Relevance
+        </div>
+
+        <div
+          class="stat-value"
+          id="result-relevance"
+        ></div>
+
+      </div>
+
+
+
+      <div class="stat">
+
+        <div class="stat-label">
+          Intensity
+        </div>
+
+        <div
+          class="stat-value"
+          id="result-intensity"
+        ></div>
+
+      </div>
+
+
+
+      <div class="stat">
+
+        <div class="stat-label">
+          Potency
+        </div>
+
+        <div
+          class="stat-value"
+          id="result-potency"
+        ></div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+
+  <!-- POTENCY -->
+
+  <div class="potency-card">
+
+    <div
+      class="plane-badge"
+      id="result-plane"
+    ></div>
+
+    <div
+      class="stage-title"
+      id="result-stage"
+    ></div>
+
+    <div
+      class="depth"
+      id="result-depth"
+    ></div>
+
+  </div>
+
+
+
+  <!-- INTERPRETATION GRID -->
+
+  <div class="results-grid">
+
+
+    <div class="content-card highlight-card">
+
+      <div class="card-label">
+        ✦ What This May Be Highlighting
+      </div>
+
+      <div
+        class="card-text"
+        id="main-interpretation"
+      ></div>
+
+    </div>
+
+
+
+    <div class="content-card reflection-card">
+
+      <div class="card-label">
+        ♡ Reflection
+      </div>
+
+      <div
+        class="card-text"
+        id="reflection-question"
+      ></div>
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- PRACTICE -->
+
+  <div class="practice-card">
+
+    <div class="practice-title">
+      ♡ Your High Vibrancy Practice
+    </div>
+
+
+    <div class="practice-grid">
+
+
+      <div class="practice-item">
+
+        <div class="practice-label">
+          Vibrate
+        </div>
+
+        <div
+          class="practice-value"
+          id="practice-vibrate"
+        ></div>
+
+      </div>
+
+
+
+      <div class="practice-item">
+
+        <div class="practice-label">
+          Duration
+        </div>
+
+        <div
+          class="practice-value"
+          id="practice-duration"
+        ></div>
+
+      </div>
+
+
+
+      <div class="practice-item">
+
+        <div class="practice-label">
+          For
+        </div>
+
+        <div
+          class="practice-value"
+          id="practice-days"
+        ></div>
+
+      </div>
+
+
+
+      <div class="practice-item">
+
+        <div class="practice-label">
+          Then
+        </div>
+
+        <div
+          class="practice-value"
+          id="practice-then"
+        ></div>
+
+      </div>
+
+
+    </div>
+
+
+    <div
+      class="practice-note"
+      id="practice-note"
+    ></div>
+
+  </div>
+
+
+
+  <!-- FOCUS -->
+
+  <div class="focus-card">
+
+    <div class="focus-label">
+      ✦ Your Focus Right Now
+    </div>
+
+    <div
+      class="focus-text"
+      id="focus-right-now"
+    ></div>
+
+  </div>
+
+
+
+  <div class="reset-wrap">
+
+    <button
+      class="reset-btn"
+      onclick="resetTool()"
+    >
+      Check Another Result
+    </button>
+
+  </div>
+
+
+</div>
+
+</div>
+
+</main>
+
+
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+
+<footer class="footer">
+
+  <div class="footer-brand">
+    High Vibrancy Living
+  </div>
+
+  <div>
+    Heal · Align · Expand
+  </div>
+
+</footer>
+
+
+
 <script>
+
+/* =========================================================
+   DATA
+========================================================= */
+
 let pendingInput = null;
 
-async function handleSubmit() {
-  const situation = document.getElementById('situation-input').value.trim();
-  const context = document.getElementById('context-input')?.value.trim() || '';
-  const context2 = document.getElementById('context2-input')?.value.trim() || '';
-  const errorBox = document.getElementById('error-box');
+
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+function handleSubmit() {
+
+  const topic =
+    document
+      .getElementById('topic-input')
+      .value
+      .trim();
+
+  const relevance =
+    document
+      .getElementById('relevance-input')
+      .value
+      .trim();
+
+  const intensity =
+    document
+      .getElementById('intensity-input')
+      .value
+      .trim();
+
+  const potency =
+    document
+      .getElementById('potency-input')
+      .value
+      .trim();
+
+  const errorBox =
+    document.getElementById('error-box');
+
 
   errorBox.classList.remove('show');
 
-  if (!situation) {
+
+  if (
+    !topic ||
+    !relevance ||
+    !intensity ||
+    !potency
+  ) {
+
     errorBox.classList.add('show');
+
     return;
+
   }
 
-  pendingInput = `Situation: ${situation}${context ? '\nContext: ' + context : ''}${context2 ? '\nAdditional: ' + context2 : ''}`;
 
-  document.getElementById('form-section').style.display = 'none';
-  document.getElementById('email-gate').classList.add('show');
+  pendingInput = `
+Scan Topic: ${topic}
+Relevance: ${relevance}
+Intensity: ${intensity}
+Potency: ${potency}
+  `.trim();
+
+
+  document
+    .getElementById('form-section')
+    .style.display = 'none';
+
+
+  document
+    .getElementById('email-gate')
+    .classList.add('show');
+
 }
+
+
+
+/* =========================================================
+   EMAIL + API
+========================================================= */
 
 async function handleGate() {
-  const email = document.getElementById('gate-email').value.trim();
-  const gateError = document.getElementById('gate-error');
-  const gateBtn = document.getElementById('gate-btn');
+
+  const email =
+    document
+      .getElementById('gate-email')
+      .value
+      .trim();
+
+  const gateError =
+    document.getElementById('gate-error');
+
+  const gateBtn =
+    document.getElementById('gate-btn');
+
 
   gateError.classList.remove('show');
-  if (!email || !email.includes('@')) { gateError.classList.add('show'); return; }
+
+
+  if (
+    !email ||
+    !email.includes('@')
+  ) {
+
+    gateError.classList.add('show');
+
+    return;
+
+  }
+
 
   gateBtn.disabled = true;
-  gateBtn.textContent = 'Diagnosing...';
-  document.getElementById('email-gate').classList.remove('show');
-  document.getElementById('loading').classList.add('show');
 
-  // CUSTOMIZE: add email capture here — see Module 4 Lesson 4.5
-  // await captureEmail(email);
+  gateBtn.textContent =
+    'Interpreting...';
+
+
+  document
+    .getElementById('email-gate')
+    .classList.remove('show');
+
+
+  document
+    .getElementById('loading')
+    .classList.add('show');
+
+
+  /*
+     Add your email capture integration here.
+
+     Example:
+
+     await captureEmail(email);
+  */
+
 
   try {
-    const response = await fetch('/api/diagnose', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userInput: pendingInput })
-    });
-    const result = await response.json();
-    if (!response.ok) throw new Error(result.error || 'Error');
+
+
+    /*
+       This keeps your existing backend endpoint.
+
+       You can later rename:
+
+       /api/diagnose
+
+       to something cleaner such as:
+
+       /api/interpret
+    */
+
+
+    const response =
+      await fetch(
+        '/api/diagnose',
+        {
+
+          method: 'POST',
+
+          headers: {
+            'Content-Type':
+              'application/json'
+          },
+
+          body:
+            JSON.stringify({
+
+              userInput:
+                pendingInput,
+
+              email:
+                email
+
+            })
+
+        }
+      );
+
+
+    const result =
+      await response.json();
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        result.error ||
+        'Unable to interpret scan.'
+      );
+
+    }
+
+
     displayResults(result);
-  } catch (err) {
-    document.getElementById('loading').classList.remove('show');
-    document.getElementById('form-section').style.display = 'block';
-    const eb = document.getElementById('error-box');
-    eb.textContent = 'Something went wrong. Please try again.';
-    eb.classList.add('show');
-    gateBtn.disabled = false;
-    gateBtn.textContent = 'Send My Diagnosis';
+
+
   }
+
+  catch (err) {
+
+    console.error(err);
+
+
+    document
+      .getElementById('loading')
+      .classList.remove('show');
+
+
+    document
+      .getElementById('form-section')
+      .style.display =
+        'block';
+
+
+    const error =
+      document.getElementById('error-box');
+
+
+    error.textContent =
+      'Something went wrong while interpreting your scan. Please try again.';
+
+
+    error.classList.add('show');
+
+
+    gateBtn.disabled =
+      false;
+
+
+    gateBtn.textContent =
+      'Reveal My Result';
+
+  }
+
 }
+
+
+
+/* =========================================================
+   RESULTS
+========================================================= */
 
 function displayResults(r) {
-  document.getElementById('loading').classList.remove('show');
 
-  document.getElementById('category-badge').textContent = r.problem_category || 'Diagnosis';
-  document.getElementById('root-cause').textContent = r.root_cause || '';
 
-  const fixesList = document.getElementById('fixes-list');
-  fixesList.innerHTML = '';
-  [r.fix_1, r.fix_2, r.fix_3].forEach((fix, i) => {
-    if (!fix) return;
-    const impactCls = (fix.impact || '').toLowerCase() === 'high' ? 'impact-high' : 'impact-med';
-    fixesList.innerHTML += `
-      <div class="fix-item">
-        <div class="fix-num">${i + 1}</div>
-        <div class="fix-content">
-          <div class="fix-action">${fix.action || ''}</div>
-          <div class="fix-meta">
-            <span class="fix-tag time">${fix.time_to_implement || ''}</span>
-            <span class="fix-tag ${impactCls}">${fix.impact || ''} Impact</span>
-          </div>
-        </div>
-      </div>`;
+  document
+    .getElementById('loading')
+    .classList.remove('show');
+
+
+  const result =
+    r.result || {};
+
+
+  const potency =
+    r.potency_interpretation || {};
+
+
+  const practice =
+    r.practice || {};
+
+
+  /* Scan */
+
+
+  document
+    .getElementById('result-topic')
+    .textContent =
+      result.topic || '';
+
+
+  document
+    .getElementById('result-relevance')
+    .textContent =
+      result.relevance || '—';
+
+
+  document
+    .getElementById('result-intensity')
+    .textContent =
+      result.intensity || '—';
+
+
+  document
+    .getElementById('result-potency')
+    .textContent =
+      result.potency || '—';
+
+
+
+  /* Potency interpretation */
+
+
+  document
+    .getElementById('result-plane')
+    .textContent =
+      potency.plane || '';
+
+
+  document
+    .getElementById('result-stage')
+    .textContent =
+      potency.stage || '';
+
+
+  document
+    .getElementById('result-depth')
+    .textContent =
+      potency.depth
+        ? `Depth: ${potency.depth}`
+        : '';
+
+
+
+  /* Interpretation */
+
+
+  document
+    .getElementById('main-interpretation')
+    .textContent =
+      r.main_interpretation || '';
+
+
+
+  document
+    .getElementById('reflection-question')
+    .textContent =
+      r.reflection_question || '';
+
+
+
+  /* Practice */
+
+
+  document
+    .getElementById('practice-vibrate')
+    .textContent =
+      practice.vibrate || '';
+
+
+  document
+    .getElementById('practice-duration')
+    .textContent =
+      practice.duration || '';
+
+
+  document
+    .getElementById('practice-days')
+    .textContent =
+      practice.days || '';
+
+
+  document
+    .getElementById('practice-then')
+    .textContent =
+      practice.then || 'Rescan';
+
+
+  document
+    .getElementById('practice-note')
+    .textContent =
+      r.practice_note || '';
+
+
+
+  /* Focus */
+
+
+  document
+    .getElementById('focus-right-now')
+    .textContent =
+      r.focus_right_now || '';
+
+
+
+  document
+    .getElementById('results')
+    .classList.add('show');
+
+
+  window.scrollTo({
+
+    top: 0,
+
+    behavior: 'smooth'
+
   });
 
-  if (r.what_to_stop) {
-    document.getElementById('stop-text').textContent = r.what_to_stop;
-    document.getElementById('stop-box').style.display = 'flex';
-  }
-
-  if (r.confidence) {
-    document.getElementById('confidence-note').textContent =
-      `Diagnostic confidence: ${r.confidence}. The more detail you provided, the more accurate this diagnosis.`;
-  }
-
-  document.getElementById('results').classList.add('show');
-  window.scrollTo(0, 0);
 }
+
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 function resetTool() {
-  document.getElementById('results').classList.remove('show');
-  document.getElementById('form-section').style.display = 'block';
-  document.getElementById('situation-input').value = '';
-  if (document.getElementById('context-input')) document.getElementById('context-input').value = '';
-  if (document.getElementById('context2-input')) document.getElementById('context2-input').value = '';
-  document.getElementById('fixes-list').innerHTML = '';
-  document.getElementById('stop-box').style.display = 'none';
-  document.getElementById('confidence-note').textContent = '';
-  document.getElementById('error-box').classList.remove('show');
-  document.getElementById('gate-btn').disabled = false;
-  document.getElementById('gate-btn').textContent = 'Send My Diagnosis';
-  pendingInput = null;
-  window.scrollTo(0, 0);
+
+
+  document
+    .getElementById('results')
+    .classList.remove('show');
+
+
+  document
+    .getElementById('email-gate')
+    .classList.remove('show');
+
+
+  document
+    .getElementById('loading')
+    .classList.remove('show');
+
+
+  document
+    .getElementById('form-section')
+    .style.display =
+      'block';
+
+
+
+  document
+    .getElementById('topic-input')
+    .value = '';
+
+
+  document
+    .getElementById('relevance-input')
+    .value = '';
+
+
+  document
+    .getElementById('intensity-input')
+    .value = '';
+
+
+  document
+    .getElementById('potency-input')
+    .value = '';
+
+
+  document
+    .getElementById('gate-email')
+    .value = '';
+
+
+
+  document
+    .getElementById('error-box')
+    .classList.remove('show');
+
+
+  document
+    .getElementById('gate-error')
+    .classList.remove('show');
+
+
+
+  const gateBtn =
+    document.getElementById('gate-btn');
+
+
+  gateBtn.disabled =
+    false;
+
+
+  gateBtn.textContent =
+    'Reveal My Result';
+
+
+
+  pendingInput =
+    null;
+
+
+
+  window.scrollTo({
+
+    top: 0,
+
+    behavior: 'smooth'
+
+  });
+
 }
+
 </script>
+
 </body>
 </html>
